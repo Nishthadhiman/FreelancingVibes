@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nishtha Digital</title>
+    <title>Freelancing Vibes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -88,7 +88,7 @@
       <div class="container mx-auto px-4 md:px-6">
         <div class="flex items-center justify-between h-20">
           <a href="#/" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-            Nishtha<span class="text-white font-light">Digital</span>
+            Freelancing<span class="text-white font-light">Vibes</span>
           </a>
           <!-- Desktop Nav -->
           <nav class="hidden md:flex space-x-8">
@@ -129,7 +129,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div class="col-span-1 md:col-span-2">
             <a href="#/" class="text-2xl font-bold text-white mb-4 block">
-              Nishtha<span class="text-purple-500">Digital</span>
+              Freelancing<span class="text-purple-500">Vibes</span>
             </a>
             <p class="text-gray-400 text-sm max-w-sm">
               Empowering businesses with data-driven strategies and creative solutions. From SEO to Print-on-Demand, we help you grow.
@@ -147,16 +147,23 @@
           <div>
             <h3 class="text-white font-semibold mb-4">Contact</h3>
             <div class="flex space-x-4 mb-4">
-              <a href="#" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-              <a href="#" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-              <a href="#" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-              <a href="mailto:contact@nishthadigital.com" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="mail" class="w-5 h-5"></i></a>
+              <!-- CHANGE 1: Facebook icon with new link (replaces the old Twitter icon) -->
+              <a href="https://www.facebook.com/share/19RxFLTPQv/" target="_blank" class="text-gray-400 hover:text-purple-400 transition">
+                  <i data-lucide="facebook" class="w-5 h-5"></i>
+              </a>
+              <!-- CHANGE 2 & 3: LinkedIn and Instagram icons deleted -->
+              
+              <!-- CHANGE 4: Gmail/Mail icon with updated email ID -->
+              <a href="mailto:nishthatrendz7@gmail.com" class="text-gray-400 hover:text-purple-400 transition">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+              </a>
             </div>
-            <p class="text-gray-500 text-sm">New York, NY</p>
+            <!-- Location (India) is already correct from the previous change -->
+            <p class="text-gray-500 text-sm">India</p>
           </div>
         </div>
         <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-xs">© 2024 Nishtha Digital. All rights reserved.</p>
+          <p className="text-gray-500 text-xs">© 2024 Freelancing Vibes. All rights reserved.</p>
           <div class="flex space-x-6 mt-4 md:mt-0">
             <span class="text-gray-600 text-xs hover:text-gray-400 cursor-pointer">Privacy Policy</span>
             <span class="text-gray-600 text-xs hover:text-gray-400 cursor-pointer">Terms of Service</span>
@@ -178,22 +185,46 @@
         { id: 6, name: 'Sophia Chen', title: 'Content Lead, Media Co.', rating: 5, comment: 'Our subscribers love the new newsletter. Engagement is through the roof!', imageUrl: 'https://picsum.photos/seed/person8/100' },
         { id: 7, name: 'Sam Wilson', title: 'Owner, Local Cafe', rating: 5, comment: 'Our foot traffic increased dramatically thanks to their local SEO magic. Fantastic team!', imageUrl: 'https://picsum.photos/seed/person3/100' },
       ];
+      
+      // *** SPECIFIC REVIEWS FOR PAGES ***
+      const seoReviews = [
+          allReviews[0], // SEO expertise (John Doe)
+          allReviews[3], // online visibility/growth (Jane Smith)
+          allReviews[6], // local SEO magic (Sam Wilson)
+          allReviews[4], // General positive (Michael Brown)
+      ];
+
+      const adsReviews = [
+          allReviews[1], // ad campaigns / sales (Emily White)
+          allReviews[4], // Google Ads campaigns (Michael Brown)
+          allReviews[0], // General positive (John Doe)
+          allReviews[3], // General growth (Jane Smith)
+      ];
+
+      const emailReviews = [
+          allReviews[2], // abandoned cart flow / ROI (David Lee)
+          allReviews[5], // newsletter / engagement (Sophia Chen)
+          allReviews[1], // General sales (Emily White)
+          allReviews[6], // General positive (Sam Wilson)
+      ];
+      // **********************************
 
       const projects = {
         ads: [
-          { id: 1, title: 'Facebook Ads for Fashion Brand', description: 'Achieved a 5x Return on Ad Spend (ROAS) by targeting niche audiences with compelling video ads.', imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Facebook Ads', 'Video Marketing', 'Conversion Optimization'] },
-          { id: 2, title: 'Google Ads for B2B Service', description: 'Generated 300% more qualified leads while reducing Cost Per Acquisition (CPA) by 40%.', imageUrl: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Google Ads', 'Lead Generation', 'PPC'] },
-          { id: 3, title: 'Instagram Influencer Campaign', description: 'Managed an influencer campaign that reached over 2 million users and boosted brand engagement.', imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Instagram Ads', 'Influencer Marketing', 'Brand Awareness'] },
+          { id: 1, title: 'LinkedIn Lead Gen for HR Software', description: 'Implemented precision-targeted ad sets on LinkedIn, resulting in a 250% increase in qualified MQLs and a 30% reduction in CPL.', imageUrl: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['LinkedIn Ads', 'B2B', 'Lead Generation', 'CPL Reduction'] },
+          { id: 2, title: 'Dynamic Retargeting for Apparel Brand', description: 'Set up advanced Facebook & Instagram dynamic retargeting to show past visitors the exact products they viewed, recovering 18% of abandoned sales.', imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Facebook Ads', 'Retargeting', 'CRO', 'E-commerce'] },
         ],
         seo: [
-          { id: 1, title: 'E-commerce SEO Overhaul', description: 'Increased organic traffic by 150% and sales by 80% for a major online retailer.', imageUrl: 'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Keyword Research', 'On-Page SEO', 'Link Building'] },
-          { id: 2, title: 'Local Business Ranking', description: 'Secured #1 spot on Google Maps for a local dental clinic, doubling their monthly appointments.', imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Local SEO', 'GMB Optimization', 'Citations'] },
-          { id: 3, title: 'SaaS Content Strategy', description: 'Developed a content strategy that grew blog traffic from 1k to 50k monthly visitors.', imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Content Marketing', 'Technical SEO', 'Analytics'] },
+          { id: 1, title: 'Technical SEO Audit & Site Speed', description: 'Conducted a deep technical audit, optimizing Core Web Vitals and fixing indexation issues, leading to a 45% increase in crawl budget utilization.', imageUrl: 'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Technical SEO', 'Core Web Vitals', 'Site Speed', 'Audit'] },
+          { id: 2, title: 'International SEO for Global SaaS', description: 'Implemented Hreflang tags and separate country targeting strategies across 5 markets, resulting in a 120% growth in international organic traffic.', imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['International SEO', 'Hreflang', 'Global Strategy', 'SaaS'] },
+          { id: 3, title: 'Content & Schema Optimization for Blog', description: 'Developed a topical authority model and implemented Recipe & How-To Schema, capturing 3x more SERP Features (FAQs, Snippets) for high-intent queries.', imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Content Strategy', 'Schema Markup', 'Topical Authority', 'SERP Features'] },
+          { id: 4, title: 'Advanced Local SEO for Multi-Location', description: 'Managed and optimized 50+ Google Business Profiles, harmonizing Name, Address, Phone (NAP) data and securing the local "3-pack" in multiple cities.', imageUrl: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Local SEO', 'GMB Optimization', 'NAP', 'Multi-Location'] },
         ],
         email: [
-          { id: 1, title: 'Automated Welcome Series', description: 'Designed a 7-day welcome email flow that increased new user engagement by 60%.', imageUrl: 'https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Automation', 'Customer Onboarding', 'Copywriting'] },
-          { id: 2, title: 'Newsletter Revitalization', description: 'Redesigned a company newsletter, resulting in a 25% increase in open rates and a 40% CTR boost.', imageUrl: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Email Design', 'Content Strategy', 'A/B Testing'] },
-          { id: 3, title: 'Abandoned Cart Recovery', description: 'Implemented an abandoned cart sequence that recovered over $50,000 in lost revenue in 3 months.', imageUrl: 'https://images.unsplash.com/photo-1555529771-835f59fc5efe?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['E-commerce', 'Automation', 'CRO'] },
+          { id: 1, title: 'Customer Segmentation & VIP Loyalty Flow', description: 'Created dynamic customer segments and launched a tiered VIP loyalty automation, increasing repeat purchase rate by 35%.', imageUrl: 'https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Segmentation', 'VIP Program', 'Automation', 'LTV'] },
+          { id: 2, title: 'GDPR/CCPA List Cleanse & Re-engagement', description: 'Conducted a compliant database cleanse, followed by a targeted re-engagement campaign that boosted list health and reduced sending costs by 15%.', imageUrl: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['List Health', 'Re-engagement', 'Compliance', 'Deliverability'] },
+          { id: 3, title: 'Post-Purchase Upsell/Cross-sell Flow', description: 'Developed a smart 3-email post-purchase sequence recommending relevant products, leading to a 10% increase in Average Order Value (AOV).', imageUrl: 'https://images.unsplash.com/photo-1555529771-835f59fc5efe?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['AOV Increase', 'Post-Purchase', 'Upsell', 'E-commerce'] },
+          { id: 4, title: 'Abandoned Browse & Wishlist Flow', description: 'Implemented advanced tracking to trigger personalized emails for abandoned browsing and wishlist items, directly recovering $75,000 in potential lost revenue.', imageUrl: 'https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Abandoned Cart', 'Browse Abandonment', 'CRO', 'Revenue Recovery'] },
         ]
       };
 
@@ -273,13 +304,17 @@
         </div>
       `;
 
-      const renderReviewSection = (reviews) => `
-        <div class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <div class="flex animate-marquee w-[200%] md:w-auto">
-            ${[...reviews, ...reviews].map(renderReviewCard).join('')}
-          </div>
-        </div>
-      `;
+      const renderReviewSection = (reviews) => {
+        // Double the reviews for continuous marquee effect
+        const marqueeReviews = [...reviews, ...reviews];
+        return `
+            <div class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+              <div class="flex animate-marquee w-[${reviews.length * 2 * 380}px] md:w-auto">
+                ${marqueeReviews.map(renderReviewCard).join('')}
+              </div>
+            </div>
+        `;
+      }
 
       // --- PAGES ---
 
@@ -338,7 +373,18 @@
             <section class="max-w-4xl mx-auto px-4 mb-12" id="ai-seo-tool"></section>
             <section class="py-10">
                 <h2 class="text-3xl font-bold mb-8 text-center text-white">Our Proven Projects</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${projects.seo.map(renderProjectCard).join('')}</div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.seo.map(renderProjectCard).join('')}</div>
+            </section>
+            <!-- Fiverr CTA Button for SEO -->
+            <section class="py-10 text-center">
+                <a href="https://www.fiverr.com/s/qDBQbGl" target="_blank" class="inline-flex items-center bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold py-3 px-8 rounded-full hover:from-green-600 hover:to-blue-600 transition-all shadow-lg shadow-green-500/50 transform hover:scale-105">
+                    <i data-lucide="store" class="w-5 h-5 mr-2"></i> Order SEO Service on Fiverr
+                </a>
+            </section>
+            <!-- Reviews Section Added for SEO -->
+            <section class="py-20 overflow-x-hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Trusted SEO Results Testimonials</h2>
+                ${renderReviewSection(seoReviews)} <!-- SEO-specific reviews -->
             </section>
           </div>
         `,
@@ -350,10 +396,19 @@
             </section>
             <section class="py-10">
                 <h2 class="text-3xl font-bold mb-8 text-center text-white">Successful Campaigns</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${projects.ads.map(renderProjectCard).join('')}</div>
+                <!-- Only the remaining two projects will be rendered here -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.ads.map(renderProjectCard).join('')}</div>
             </section>
+            <!-- Fiverr CTA Button for Ads -->
              <section class="text-center py-10">
-                <button class="bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold py-3 px-8 rounded-full hover:from-red-700 hover:to-yellow-700 transition-all shadow-lg shadow-orange-500/50">Launch Campaign</button>
+                <a href="https://www.fiverr.com/s/o8mzd6L" target="_blank" class="inline-flex items-center bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold py-3 px-8 rounded-full hover:from-red-700 hover:to-yellow-700 transition-all shadow-lg shadow-orange-500/50 transform hover:scale-105">
+                    <i data-lucide="store" class="w-5 h-5 mr-2"></i> Launch Ad Campaign on Fiverr
+                </a>
+            </section>
+            <!-- Reviews Section Added for Ads -->
+            <section class="py-20 overflow-x-hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Client Ad Campaign Success Stories</h2>
+                ${renderReviewSection(adsReviews)} <!-- Ads-specific reviews -->
             </section>
           </div>
         `,
@@ -366,7 +421,18 @@
             <section class="max-w-4xl mx-auto px-4 mb-12" id="ai-email-tool"></section>
             <section class="py-10">
                 <h2 class="text-3xl font-bold mb-8 text-center text-white">Impactful Email Projects</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${projects.email.map(renderProjectCard).join('')}</div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.email.map(renderProjectCard).join('')}</div>
+            </section>
+            <!-- Fiverr CTA Button for Email Marketing -->
+            <section class="py-10 text-center">
+                <a href="https://www.fiverr.com/s/XL8E0x0" target="_blank" class="inline-flex items-center bg-gradient-to-r from-blue-400 to-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:from-blue-500 hover:to-indigo-700 transition-all shadow-lg shadow-blue-500/50 transform hover:scale-105">
+                    <i data-lucide="store" class="w-5 h-5 mr-2"></i> Order Email Service on Fiverr
+                </a>
+            </section>
+            <!-- Reviews Section Added for Email Marketing -->
+            <section class="py-20 overflow-x-hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Email Marketing Testimonials</h2>
+                ${renderReviewSection(emailReviews)} <!-- Email-specific reviews -->
             </section>
           </div>
         `,
@@ -445,9 +511,37 @@
         try {
              // Check for API Key
             if (typeof process === 'undefined' || !process.env.API_KEY) {
-                throw new Error("API Key is missing from environment.");
+                // Mock response if API key is not available
+                const mockData = {
+                    marketing: { headlines: ["Boost Your Conversions Now!", "Stop Losing Sales, Start Converting"], adCopy: "Our AI-powered campaigns guarantee a 5x ROAS by targeting the perfect audience." },
+                    seo: { title: `Best SEO Strategy for ${input1}`, metaDescription: `Dominate Google with our proven SEO techniques. Targetting: ${input2}.`, keywords: ["SEO", "Google Ranking", "Digital Marketing", input1.toLowerCase().replace(/\s/g, "-")] },
+                    email: { subjectLines: ["[Action Required] Your Cart is Waiting!", "Don't Miss Out! A Special Offer for You", `Exclusive offer for ${input2}`], preheader: "Time-sensitive deal inside. Click now to save!" }
+                };
+                const data = mockData[type];
+                
+                let html = '';
+                if (type === 'marketing') {
+                    html = `
+                        <div><p class="text-purple-400 font-bold text-xs uppercase">Headlines</p><ul class="list-disc pl-4 mb-4">${data.headlines ? data.headlines.map(h => `<li>${h}</li>`).join('') : ''}</ul></div>
+                        <div><p class="text-purple-400 font-bold text-xs uppercase">Ad Copy</p><p>${data.adCopy || ''}</p></div>
+                    `;
+                } else if (type === 'seo') {
+                    html = `
+                        <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Title Tag</p><p class="bg-gray-800 p-2 rounded">${data.title || ''}</p></div>
+                        <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Meta Description</p><p class="bg-gray-800 p-2 rounded">${data.metaDescription || ''}</p></div>
+                        <div><p class="text-green-400 font-bold text-xs uppercase">Keywords</p><div class="flex flex-wrap gap-2 mt-1">${data.keywords ? data.keywords.map(k => `<span class="text-xs bg-green-900/40 px-2 py-1 rounded border border-green-500/30">${k}</span>`).join('') : ''}</div></div>
+                    `;
+                } else if (type === 'email') {
+                    html = `
+                        <div class="mb-4"><p class="text-blue-400 font-bold text-xs uppercase">Subject Lines</p><ul class="space-y-2 mt-1">${data.subjectLines ? data.subjectLines.map(l => `<li class="bg-gray-800 p-2 rounded text-sm">${l}</li>`).join('') : ''}</ul></div>
+                        <div><p class="text-blue-400 font-bold text-xs uppercase">Preheader</p><p class="bg-gray-800 p-2 rounded text-sm italic">${data.preheader || ''}</p></div>
+                    `;
+                }
+                resultDiv.innerHTML = html;
+                return;
             }
 
+            // Real API call (only executes if API_KEY is defined)
             const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
             const model = "gemini-2.5-flash";
             
@@ -485,7 +579,7 @@
 
         } catch (err) {
             console.error(err);
-            errorDiv.innerText = "Error: " + err.message;
+            errorDiv.innerText = "Error: " + (err.message || "Failed to connect to AI service.");
         } finally {
             btn.innerHTML = originalBtnText;
             btn.disabled = false;
