@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nishtha Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            },
+            animation: {
+              'gradient-xy': 'gradient-xy 15s ease infinite',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'marquee': 'marquee 30s linear infinite',
+              'halloween-glow': 'halloweenGlow 3s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              'gradient-xy': {
+                '0%, 100%': {
+                  'background-size': '400% 400%',
+                  'background-position': 'left center'
+                },
+                '50%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'right center'
+                }
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              halloweenGlow: {
+                '0%, 100%': { textShadow: '0 0 10px #ff6600, 0 0 20px #ff6600' },
+                '50%': { textShadow: '0 0 20px #ff9933, 0 0 30px #ff9933' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .loader {
+        border: 3px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top: 3px solid #fff;
+        width: 20px;
+        height: 20px;
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.run/@google/genai",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+  </head>
+  <body class="bg-black text-white font-poppins min-h-screen flex flex-col relative overflow-x-hidden">
+    <!-- Dynamic Background Layer -->
+    <div id="bg-layer" class="fixed inset-0 z-0"></div>
+    <div class="fixed inset-0 z-0 bg-black/40 backdrop-blur-[2px] pointer-events-none"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-between h-20">
+          <a href="#/" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+            Nishtha<span class="text-white font-light">Digital</span>
+          </a>
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex space-x-8">
+            <a href="#/" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/">Home</a>
+            <a href="#/seo" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/seo">SEO</a>
+            <a href="#/ads" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/ads">Ads</a>
+            <a href="#/email-marketing" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/email-marketing">Email Marketing</a>
+            <a href="#/print-on-demand" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/print-on-demand">Shop (POD)</a>
+          </nav>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+              <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-white/10 animate-fade-in-up">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+          <a href="#/" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Home</a>
+          <a href="#/seo" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">SEO</a>
+          <a href="#/ads" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Ads</a>
+          <a href="#/email-marketing" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Email Marketing</a>
+          <a href="#/print-on-demand" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Shop (POD)</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="app-content" class="relative z-10 flex-grow px-4 py-8 md:px-8 md:py-12 container mx-auto">
+      <!-- Content injected via JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black/40 border-t border-white/5 pt-12 pb-8 mt-auto">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div class="col-span-1 md:col-span-2">
+            <a href="#/" class="text-2xl font-bold text-white mb-4 block">
+              Nishtha<span class="text-purple-500">Digital</span>
+            </a>
+            <p class="text-gray-400 text-sm max-w-sm">
+              Empowering businesses with data-driven strategies and creative solutions. From SEO to Print-on-Demand, we help you grow.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#/seo" class="text-gray-400 hover:text-purple-400 text-sm transition">SEO Services</a></li>
+              <li><a href="#/ads" class="text-gray-400 hover:text-purple-400 text-sm transition">Ad Campaigns</a></li>
+              <li><a href="#/email-marketing" class="text-gray-400 hover:text-purple-400 text-sm transition">Email Marketing</a></li>
+              <li><a href="#/print-on-demand" class="text-gray-400 hover:text-purple-400 text-sm transition">Shop POD</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold mb-4">Contact</h3>
+            <div class="flex space-x-4 mb-4">
+              <a href="#" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+              <a href="#" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+              <a href="#" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+              <a href="mailto:contact@nishthadigital.com" class="text-gray-400 hover:text-purple-400 transition"><i data-lucide="mail" class="w-5 h-5"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">New York, NY</p>
+          </div>
+        </div>
+        <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 text-xs">© 2024 Nishtha Digital. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <span class="text-gray-600 text-xs hover:text-gray-400 cursor-pointer">Privacy Policy</span>
+            <span class="text-gray-600 text-xs hover:text-gray-400 cursor-pointer">Terms of Service</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { GoogleGenAI, Type } from "@google/genai";
+
+      // --- DATA ---
+      const allReviews = [
+        { id: 1, name: 'John Doe', title: 'CEO, Tech Startup', rating: 5, comment: 'Their SEO expertise is unmatched. We saw tangible results within weeks. Highly recommend!', imageUrl: 'https://picsum.photos/seed/person1/100' },
+        { id: 2, name: 'Emily White', title: 'Founder, D2C Brand', rating: 5, comment: 'Our sales have never been better. The ad campaigns they run are pure genius!', imageUrl: 'https://picsum.photos/seed/person4/100' },
+        { id: 3, name: 'David Lee', title: 'E-commerce Manager', rating: 5, comment: 'The abandoned cart flow they built for us is a money-printing machine. Incredible ROI.', imageUrl: 'https://picsum.photos/seed/person7/100' },
+        { id: 4, name: 'Jane Smith', title: 'Marketing Director, Retail Co.', rating: 5, comment: 'Freelancing Vibes transformed our online visibility. A true partner in growth.', imageUrl: 'https://picsum.photos/seed/person2/100' },
+        { id: 5, name: 'Michael Brown', title: 'Sales Manager, B2B Corp', rating: 5, comment: 'The quality of leads we get from their Google Ads campaigns is phenomenal. A game-changer.', imageUrl: 'https://picsum.photos/seed/person5/100' },
+        { id: 6, name: 'Sophia Chen', title: 'Content Lead, Media Co.', rating: 5, comment: 'Our subscribers love the new newsletter. Engagement is through the roof!', imageUrl: 'https://picsum.photos/seed/person8/100' },
+        { id: 7, name: 'Sam Wilson', title: 'Owner, Local Cafe', rating: 5, comment: 'Our foot traffic increased dramatically thanks to their local SEO magic. Fantastic team!', imageUrl: 'https://picsum.photos/seed/person3/100' },
+      ];
+
+      const projects = {
+        ads: [
+          { id: 1, title: 'Facebook Ads for Fashion Brand', description: 'Achieved a 5x Return on Ad Spend (ROAS) by targeting niche audiences with compelling video ads.', imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Facebook Ads', 'Video Marketing', 'Conversion Optimization'] },
+          { id: 2, title: 'Google Ads for B2B Service', description: 'Generated 300% more qualified leads while reducing Cost Per Acquisition (CPA) by 40%.', imageUrl: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Google Ads', 'Lead Generation', 'PPC'] },
+          { id: 3, title: 'Instagram Influencer Campaign', description: 'Managed an influencer campaign that reached over 2 million users and boosted brand engagement.', imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Instagram Ads', 'Influencer Marketing', 'Brand Awareness'] },
+        ],
+        seo: [
+          { id: 1, title: 'E-commerce SEO Overhaul', description: 'Increased organic traffic by 150% and sales by 80% for a major online retailer.', imageUrl: 'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Keyword Research', 'On-Page SEO', 'Link Building'] },
+          { id: 2, title: 'Local Business Ranking', description: 'Secured #1 spot on Google Maps for a local dental clinic, doubling their monthly appointments.', imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Local SEO', 'GMB Optimization', 'Citations'] },
+          { id: 3, title: 'SaaS Content Strategy', description: 'Developed a content strategy that grew blog traffic from 1k to 50k monthly visitors.', imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Content Marketing', 'Technical SEO', 'Analytics'] },
+        ],
+        email: [
+          { id: 1, title: 'Automated Welcome Series', description: 'Designed a 7-day welcome email flow that increased new user engagement by 60%.', imageUrl: 'https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Automation', 'Customer Onboarding', 'Copywriting'] },
+          { id: 2, title: 'Newsletter Revitalization', description: 'Redesigned a company newsletter, resulting in a 25% increase in open rates and a 40% CTR boost.', imageUrl: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Email Design', 'Content Strategy', 'A/B Testing'] },
+          { id: 3, title: 'Abandoned Cart Recovery', description: 'Implemented an abandoned cart sequence that recovered over $50,000 in lost revenue in 3 months.', imageUrl: 'https://images.unsplash.com/photo-1555529771-835f59fc5efe?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['E-commerce', 'Automation', 'CRO'] },
+        ]
+      };
+
+      const podProducts = [
+        { id: 1, name: 'Ghostly Cookies T-Shirt', imageUrl: 'https://picsum.photos/seed/ghostcookie/400/400', price: '$21.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
+        { id: 2, name: 'Spooky Ghost Light Mug', imageUrl: 'https://picsum.photos/seed/spookymug/400/400', price: '$18.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
+        { id: 3, name: 'Haunted Trio T-Shirt', imageUrl: 'https://picsum.photos/seed/hauntedtrio/400/400', price: '$21.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
+        { id: 4, name: 'Autumn Ghost T-Shirt', imageUrl: 'https://picsum.photos/seed/autumnghost/400/400', price: '$21.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
+        { id: 5, name: 'Phantom Phone Case', imageUrl: 'https://picsum.photos/seed/phantomcase/400/400', price: '$24.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
+        { id: 6, name: 'Ghostly Brew Mug', imageUrl: 'https://picsum.photos/seed/ghostbrew/400/400', price: '$18.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
+      ];
+
+      // --- COMPONENTS RENDERERS ---
+
+      const renderReviewCard = (review) => `
+        <div class="bg-gray-800/60 backdrop-blur-sm p-6 rounded-xl border border-white/5 hover:border-purple-500/30 transition-all h-full flex flex-col flex-shrink-0 w-[300px] md:w-[380px] mx-4">
+          <div class="flex items-center space-x-1 mb-4 text-yellow-500">
+            ${Array(5).fill(0).map((_, i) => `<i data-lucide="star" class="w-4 h-4 ${i < review.rating ? 'fill-current' : 'text-gray-600'}"></i>`).join('')}
+          </div>
+          <p class="text-gray-300 italic mb-6 text-sm flex-grow">"${review.comment}"</p>
+          <div class="flex items-center mt-auto">
+            <img src="${review.imageUrl}" alt="${review.name}" class="w-10 h-10 rounded-full object-cover border-2 border-purple-500/30 mr-3"/>
+            <div>
+              <h4 class="text-white font-semibold text-sm">${review.name}</h4>
+              <p class="text-purple-400 text-xs">${review.title}</p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const renderProjectCard = (project) => `
+        <div class="group relative bg-gray-900/50 border border-white/10 rounded-xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20">
+          <div class="h-48 overflow-hidden relative">
+            <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-out"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80"></div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">${project.title}</h3>
+              <i data-lucide="arrow-up-right" class="text-gray-500 w-5 h-5 group-hover:text-purple-400 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+            </div>
+            <p class="text-gray-400 text-sm mb-4 line-clamp-2">${project.description}</p>
+            <div class="flex flex-wrap gap-2">
+              ${project.tags.map(tag => `<span class="px-2 py-1 bg-purple-900/30 border border-purple-500/20 rounded-md text-xs text-purple-200 font-medium">${tag}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      const renderProductCard = (product) => `
+        <div class="group bg-black/60 backdrop-blur-md rounded-xl overflow-hidden border border-orange-500/20 hover:border-orange-500/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,100,0,0.3)]">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"/>
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <a href="${product.productUrl}" target="_blank" rel="noreferrer" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center shadow-lg hover:bg-orange-700">
+                <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Buy Now
+              </a>
+            </div>
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-lg font-bold text-gray-100 mb-1 group-hover:text-orange-400 transition-colors">${product.name}</h3>
+            <p class="text-2xl font-extrabold text-orange-500">${product.price}</p>
+          </div>
+        </div>
+      `;
+
+      const renderServiceCard = (iconName, title, desc, link) => `
+        <div class="group bg-gray-900/40 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:bg-gray-800/60 transition-all duration-300 flex flex-col items-center text-center">
+          <div class="mb-6 p-4 rounded-full bg-gradient-to-br from-purple-900/50 to-pink-900/50 text-white group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/10 group-hover:ring-purple-500/50">
+            <div class="text-purple-200"><i data-lucide="${iconName}" class="w-12 h-12"></i></div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">${title}</h3>
+          <p class="text-gray-400 mb-8 leading-relaxed">${desc}</p>
+          <a href="#${link}" class="mt-auto inline-flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors group-hover:underline underline-offset-4">
+            Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      `;
+
+      const renderReviewSection = (reviews) => `
+        <div class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+          <div class="flex animate-marquee w-[200%] md:w-auto">
+            ${[...reviews, ...reviews].map(renderReviewCard).join('')}
+          </div>
+        </div>
+      `;
+
+      // --- PAGES ---
+
+      const pages = {
+        '/': () => `
+          <div class="animate-fade-in-up">
+            <!-- Hero -->
+            <section class="py-24 relative overflow-hidden min-h-[70vh] flex items-center justify-center">
+                <div class="absolute inset-0 z-0 opacity-20 animate-pulse-slow" style="background-image: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 1600 900\' xmlns=\'http://www.w3.org/2000/svg\'><defs><linearGradient id=\'a\' x1=\'0\' x2=\'0\' y1=\'1\' y2=\'0\'><stop offset=\'0\' stop-color=\'%23a855f7\'/><stop offset=\'1\' stop-color=\'%23e9d5ff\'/></linearGradient><linearGradient id=\'b\' x1=\'0\' x2=\'0\' y1=\'0\' y2=\'1\'><stop offset=\'0\' stop-color=\'%23f472b6\'/><stop offset=\'1\' stop-color=\'%23a855f7\'/></linearGradient></defs><g fill=\'none\' stroke-dasharray=\'10 5\' stroke-width=\'0.5\'><path d=\'M1600 0L0 900\' stroke=\'url(%23a)\'/><path d=\'M0 0L1600 900\' stroke=\'url(%23b)\'/><path d=\'M800 0L800 900\' stroke-opacity=\'0.4\' stroke=\'url(%23a)\'/><path d=\'M0 450L1600 450\' stroke-opacity=\'0.4\' stroke=\'url(%23b)\'/></g></svg>'); background-size: cover;"></div>
+                <div class="relative z-10 px-4 text-center">
+                  <!-- ****** AAPKI PHOTO YAHAN ADD KI GAYI HAI ****** -->
+                  <img 
+                    src="./my-profile-photo.jpg" 
+                    alt="Aapki Profile Photo" 
+                    class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-purple-500 shadow-2xl mx-auto mb-8 transform hover:scale-105 transition-transform duration-500"
+                  />
+                  <!-- ******************************************* -->
+                  <h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600">Engineering Digital Growth.</h1>
+                  <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">We architect bespoke digital strategies—from precision SEO and high-ROI ad campaigns to compelling email marketing—that deliver measurable growth.</p>
+                  <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button class="bg-purple-600 text-white font-bold py-3 px-8 rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-500/50">Unlock Your Potential</button>
+                  </div>
+                </div>
+            </section>
+
+            <!-- AI Tool -->
+            <section class="py-16 px-4 max-w-4xl mx-auto" id="ai-marketing-tool">
+                <!-- JS will inject AI Tool here -->
+            </section>
+
+            <!-- Services -->
+            <section class="py-16">
+                <div class="max-w-6xl mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Our Core Services</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        ${renderServiceCard('search', 'SEO Optimization', 'Dominate search rankings.', '/seo')}
+                        ${renderServiceCard('megaphone', 'Targeted Ads', 'Reach ideal customers.', '/ads')}
+                        ${renderServiceCard('mail', 'Email Marketing', 'Build loyalty and drive sales.', '/email-marketing')}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews -->
+            <section class="py-20 overflow-x-hidden">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Loved By Businesses Worldwide</h2>
+                ${renderReviewSection(allReviews)}
+            </section>
+          </div>
+        `,
+        '/seo': () => `
+          <div class="animate-fade-in-up container mx-auto">
+            <section class="text-center py-16">
+                <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">Search Engine Optimization</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Climb the ranks, capture your audience, and convert clicks into customers.</p>
+            </section>
+            <section class="max-w-4xl mx-auto px-4 mb-12" id="ai-seo-tool"></section>
+            <section class="py-10">
+                <h2 class="text-3xl font-bold mb-8 text-center text-white">Our Proven Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${projects.seo.map(renderProjectCard).join('')}</div>
+            </section>
+          </div>
+        `,
+        '/ads': () => `
+          <div class="animate-fade-in-up container mx-auto">
+            <section class="text-center py-16">
+                <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-yellow-500">Targeted Ad Campaigns</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">High-impact ad campaigns that drive measurable results.</p>
+            </section>
+            <section class="py-10">
+                <h2 class="text-3xl font-bold mb-8 text-center text-white">Successful Campaigns</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${projects.ads.map(renderProjectCard).join('')}</div>
+            </section>
+             <section class="text-center py-10">
+                <button class="bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold py-3 px-8 rounded-full hover:from-red-700 hover:to-yellow-700 transition-all shadow-lg shadow-orange-500/50">Launch Campaign</button>
+            </section>
+          </div>
+        `,
+        '/email-marketing': () => `
+           <div class="animate-fade-in-up container mx-auto">
+            <section class="text-center py-16">
+                <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-600">Engaging Email Marketing</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">Build loyalty and drive sales directly to the inbox.</p>
+            </section>
+            <section class="max-w-4xl mx-auto px-4 mb-12" id="ai-email-tool"></section>
+            <section class="py-10">
+                <h2 class="text-3xl font-bold mb-8 text-center text-white">Impactful Email Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">${projects.email.map(renderProjectCard).join('')}</div>
+            </section>
+          </div>
+        `,
+        '/print-on-demand': () => `
+           <div class="animate-fade-in-up container mx-auto">
+            <section class="text-center py-16">
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 text-orange-500 animate-halloween-glow font-serif tracking-wider">nishthastore_01</h1>
+                <p class="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto drop-shadow-lg">Unleash your inner ghoul with our exclusive Halloween collection.</p>
+            </section>
+            <section class="py-12">
+                <div class="flex items-center justify-center mb-12">
+                    <div class="h-1 w-20 bg-orange-500 rounded-full"></div>
+                    <h2 class="text-4xl font-bold mx-6 text-gray-100 text-center">Featured Frights</h2>
+                    <div class="h-1 w-20 bg-orange-500 rounded-full"></div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                  ${podProducts.map(renderProductCard).join('')}
+                </div>
+            </section>
+          </div>
+        `
+      };
+
+      // --- AI TOOLS LOGIC & RENDERING ---
+      
+      function renderAiContainer(title, desc, icon, colorClass, type) {
+          return `
+            <div class="bg-gradient-to-br ${colorClass} p-8 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="text-center mb-8">
+                        <span class="inline-block p-3 rounded-full bg-white/10 text-white mb-4"><i data-lucide="${icon}" class="w-6 h-6"></i></span>
+                        <h2 class="text-3xl font-bold text-white mb-2">${title}</h2>
+                        <p class="text-gray-400">${desc}</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <input type="text" id="ai-${type}-input1" placeholder="Topic / Product Name" class="w-full bg-gray-900/80 border border-gray-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-white/50 outline-none" />
+                            <textarea id="ai-${type}-input2" placeholder="Description / Audience" rows="4" class="w-full bg-gray-900/80 border border-gray-700 rounded-lg p-3 text-white focus:ring-2 focus:ring-white/50 outline-none resize-none"></textarea>
+                            <div id="ai-${type}-error" class="text-red-400 text-sm"></div>
+                            <button id="ai-${type}-btn" class="w-full bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center">
+                                <i data-lucide="sparkles" class="w-5 h-5 mr-2"></i> Generate
+                            </button>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-6 border border-white/5 min-h-[300px] flex flex-col">
+                            <h3 class="text-lg font-semibold text-gray-200 mb-4 border-b border-white/10 pb-2">Results</h3>
+                            <div id="ai-${type}-result" class="flex-grow space-y-4 text-gray-300 text-sm">
+                                <div class="h-full flex flex-col items-center justify-center text-gray-500 opacity-50">
+                                    <i data-lucide="cpu" class="w-10 h-10 mb-2"></i>
+                                    <p>AI Results will appear here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          `;
+      }
+
+      async function handleAiGenerate(type, promptTemplate) {
+        const btn = document.getElementById(`ai-${type}-btn`);
+        const input1 = document.getElementById(`ai-${type}-input1`).value;
+        const input2 = document.getElementById(`ai-${type}-input2`).value;
+        const resultDiv = document.getElementById(`ai-${type}-result`);
+        const errorDiv = document.getElementById(`ai-${type}-error`);
+        
+        if (!input1 || !input2) {
+            errorDiv.innerText = "Please fill all fields.";
+            return;
+        }
+        errorDiv.innerText = "";
+        
+        const originalBtnText = btn.innerHTML;
+        btn.innerHTML = `<div class="loader mr-2"></div> Generating...`;
+        btn.disabled = true;
+
+        try {
+             // Check for API Key
+            if (typeof process === 'undefined' || !process.env.API_KEY) {
+                throw new Error("API Key is missing from environment.");
+            }
+
+            const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+            const model = "gemini-2.5-flash";
+            
+            const prompt = promptTemplate.replace('{1}', input1).replace('{2}', input2);
+            
+            const response = await ai.models.generateContent({
+                model: model,
+                contents: prompt,
+                config: { responseMimeType: "application/json" }
+            });
+            
+            const data = JSON.parse(response.text);
+            
+            // Format Output based on type
+            let html = '';
+            if (type === 'marketing') {
+                 html = `
+                    <div><p class="text-purple-400 font-bold text-xs uppercase">Headlines</p><ul class="list-disc pl-4 mb-4">${data.headlines ? data.headlines.map(h => `<li>${h}</li>`).join('') : ''}</ul></div>
+                    <div><p class="text-purple-400 font-bold text-xs uppercase">Ad Copy</p><p>${data.adCopy || ''}</p></div>
+                 `;
+            } else if (type === 'seo') {
+                 html = `
+                    <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Title Tag</p><p class="bg-gray-800 p-2 rounded">${data.title || ''}</p></div>
+                    <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Meta Description</p><p class="bg-gray-800 p-2 rounded">${data.metaDescription || ''}</p></div>
+                    <div><p class="text-green-400 font-bold text-xs uppercase">Keywords</p><div class="flex flex-wrap gap-2 mt-1">${data.keywords ? data.keywords.map(k => `<span class="text-xs bg-green-900/40 px-2 py-1 rounded border border-green-500/30">${k}</span>`).join('') : ''}</div></div>
+                 `;
+            } else if (type === 'email') {
+                 html = `
+                    <div class="mb-4"><p class="text-blue-400 font-bold text-xs uppercase">Subject Lines</p><ul class="space-y-2 mt-1">${data.subjectLines ? data.subjectLines.map(l => `<li class="bg-gray-800 p-2 rounded text-sm">${l}</li>`).join('') : ''}</ul></div>
+                    <div><p class="text-blue-400 font-bold text-xs uppercase">Preheader</p><p class="bg-gray-800 p-2 rounded text-sm italic">${data.preheader || ''}</p></div>
+                 `;
+            }
+            
+            resultDiv.innerHTML = html;
+
+        } catch (err) {
+            console.error(err);
+            errorDiv.innerText = "Error: " + err.message;
+        } finally {
+            btn.innerHTML = originalBtnText;
+            btn.disabled = false;
+        }
+      }
+
+      function mountAiTools() {
+          const marketingContainer = document.getElementById('ai-marketing-tool');
+          if (marketingContainer) {
+              marketingContainer.innerHTML = renderAiContainer('AI Ad Copy Generator', 'Generate high-converting headlines and copy.', 'sparkles', 'from-purple-900/40 to-black', 'marketing');
+              document.getElementById('ai-marketing-btn').addEventListener('click', () => {
+                  handleAiGenerate('marketing', `Product: {1}. Description: {2}. Generate JSON with fields: headlines (array of strings), adCopy (string).`);
+              });
+          }
+
+          const seoContainer = document.getElementById('ai-seo-tool');
+          if (seoContainer) {
+              seoContainer.innerHTML = renderAiContainer('AI SEO Optimizer', 'Generate perfect meta tags in seconds.', 'bar-chart', 'from-green-900/40 to-black', 'seo');
+              document.getElementById('ai-seo-btn').addEventListener('click', () => {
+                  handleAiGenerate('seo', `Keyword: {1}. Content: {2}. Generate JSON with fields: title (string), metaDescription (string), keywords (array of strings).`);
+              });
+          }
+
+          const emailContainer = document.getElementById('ai-email-tool');
+          if (emailContainer) {
+              emailContainer.innerHTML = renderAiContainer('AI Subject Line Gen', 'Boost open rates with AI hooks.', 'mail', 'from-blue-900/40 to-black', 'email');
+              document.getElementById('ai-email-btn').addEventListener('click', () => {
+                  handleAiGenerate('email', `Topic: {1}. Audience: {2}. Generate JSON with fields: subjectLines (array of strings), preheader (string).`);
+              });
+          }
+          
+          lucide.createIcons();
+      }
+
+      // --- APP ROUTER ---
+
+      function router() {
+        const hash = window.location.hash.slice(1) || '/';
+        const appContent = document.getElementById('app-content');
+        const bgLayer = document.getElementById('bg-layer');
+
+        // Update Background
+        if (hash === '/print-on-demand') {
+             bgLayer.className = 'fixed inset-0 z-0 bg-cover bg-fixed bg-center';
+             bgLayer.style.backgroundImage = "url('https://picsum.photos/seed/halloween/1920/1080')";
+        } else {
+             bgLayer.className = 'fixed inset-0 z-0 bg-gradient-to-br from-black via-gray-900 to-black animate-gradient-xy';
+             bgLayer.style.backgroundImage = "";
+        }
+
+        // Render Page
+        if (pages[hash]) {
+            appContent.innerHTML = pages[hash]();
+            window.scrollTo(0,0);
+        } else {
+            appContent.innerHTML = `<div class="text-center py-20"><h1 class="text-4xl font-bold">404 Not Found</h1><a href="#/" class="text-purple-400 mt-4 inline-block">Go Home</a></div>`;
+        }
+
+        // Mount Dynamic Components (AI Tools & Icons)
+        setTimeout(() => {
+             mountAiTools();
+             lucide.createIcons();
+        }, 50);
+
+        // Update Active Nav State
+        document.querySelectorAll('.nav-link').forEach(link => {
+             if (link.getAttribute('data-path') === hash) {
+                 link.classList.add('text-purple-400');
+                 link.classList.remove('text-gray-300');
+             } else {
+                 link.classList.add('text-gray-300');
+                 link.classList.remove('text-purple-400');
+             }
+        });
+      }
+
+      // --- INIT ---
+
+      window.addEventListener('hashchange', router);
+      window.addEventListener('load', router);
+      
+      // Mobile Menu Logic
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+          const menu = document.getElementById('mobile-menu');
+          menu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+             document.getElementById('mobile-menu').classList.add('hidden');
+          });
+      });
+
+    </script>
+  </body>
+</html>
