@@ -96,7 +96,6 @@
             <a href="#/seo" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/seo">SEO</a>
             <a href="#/ads" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/ads">Ads</a>
             <a href="#/email-marketing" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/email-marketing">Email Marketing</a>
-            <a href="#/print-on-demand" class="nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors" data-path="/print-on-demand">Shop (POD)</a>
           </nav>
           <!-- Mobile Menu Button -->
           <div class="md:hidden">
@@ -113,7 +112,6 @@
           <a href="#/seo" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">SEO</a>
           <a href="#/ads" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Ads</a>
           <a href="#/email-marketing" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Email Marketing</a>
-          <a href="#/print-on-demand" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Shop (POD)</a>
         </div>
       </div>
     </header>
@@ -132,7 +130,7 @@
               Freelancing<span class="text-purple-500">Vibes</span>
             </a>
             <p class="text-gray-400 text-sm max-w-sm">
-              Empowering businesses with data-driven strategies and creative solutions. From SEO to Print-on-Demand, we help you grow.
+              Empowering businesses with data-driven strategies and creative solutions. We help you grow your digital presence.
             </p>
           </div>
           <div>
@@ -141,24 +139,18 @@
               <li><a href="#/seo" class="text-gray-400 hover:text-purple-400 text-sm transition">SEO Services</a></li>
               <li><a href="#/ads" class="text-gray-400 hover:text-purple-400 text-sm transition">Ad Campaigns</a></li>
               <li><a href="#/email-marketing" class="text-gray-400 hover:text-purple-400 text-sm transition">Email Marketing</a></li>
-              <li><a href="#/print-on-demand" class="text-gray-400 hover:text-purple-400 text-sm transition">Shop POD</a></li>
             </ul>
           </div>
           <div>
             <h3 class="text-white font-semibold mb-4">Contact</h3>
             <div class="flex space-x-4 mb-4">
-              <!-- CHANGE 1: Facebook icon with new link (replaces the old Twitter icon) -->
               <a href="https://www.facebook.com/share/19RxFLTPQv/" target="_blank" class="text-gray-400 hover:text-purple-400 transition">
                   <i data-lucide="facebook" class="w-5 h-5"></i>
               </a>
-              <!-- CHANGE 2 & 3: LinkedIn and Instagram icons deleted -->
-              
-              <!-- CHANGE 4: Gmail/Mail icon with updated email ID -->
               <a href="mailto:nishthatrendz7@gmail.com" class="text-gray-400 hover:text-purple-400 transition">
                   <i data-lucide="mail" class="w-5 h-5"></i>
               </a>
             </div>
-            <!-- Location (India) is already correct from the previous change -->
             <p class="text-gray-500 text-sm">India</p>
           </div>
         </div>
@@ -186,28 +178,9 @@
         { id: 7, name: 'Sam Wilson', title: 'Owner, Local Cafe', rating: 5, comment: 'Our foot traffic increased dramatically thanks to their local SEO magic. Fantastic team!', imageUrl: 'https://picsum.photos/seed/person3/100' },
       ];
       
-      // *** SPECIFIC REVIEWS FOR PAGES ***
-      const seoReviews = [
-          allReviews[0], // SEO expertise (John Doe)
-          allReviews[3], // online visibility/growth (Jane Smith)
-          allReviews[6], // local SEO magic (Sam Wilson)
-          allReviews[4], // General positive (Michael Brown)
-      ];
-
-      const adsReviews = [
-          allReviews[1], // ad campaigns / sales (Emily White)
-          allReviews[4], // Google Ads campaigns (Michael Brown)
-          allReviews[0], // General positive (John Doe)
-          allReviews[3], // General growth (Jane Smith)
-      ];
-
-      const emailReviews = [
-          allReviews[2], // abandoned cart flow / ROI (David Lee)
-          allReviews[5], // newsletter / engagement (Sophia Chen)
-          allReviews[1], // General sales (Emily White)
-          allReviews[6], // General positive (Sam Wilson)
-      ];
-      // **********************************
+      const seoReviews = [allReviews[0], allReviews[3], allReviews[6], allReviews[4]];
+      const adsReviews = [allReviews[1], allReviews[4], allReviews[0], allReviews[3]];
+      const emailReviews = [allReviews[2], allReviews[5], allReviews[1], allReviews[6]];
 
       const projects = {
         ads: [
@@ -227,15 +200,6 @@
           { id: 4, title: 'Abandoned Browse & Wishlist Flow', description: 'Implemented advanced tracking to trigger personalized emails for abandoned browsing and wishlist items, directly recovering $75,000 in potential lost revenue.', imageUrl: 'https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop', tags: ['Abandoned Cart', 'Browse Abandonment', 'CRO', 'Revenue Recovery'] },
         ]
       };
-
-      const podProducts = [
-        { id: 1, name: 'Ghostly Cookies T-Shirt', imageUrl: 'https://picsum.photos/seed/ghostcookie/400/400', price: '$21.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
-        { id: 2, name: 'Spooky Ghost Light Mug', imageUrl: 'https://picsum.photos/seed/spookymug/400/400', price: '$18.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
-        { id: 3, name: 'Haunted Trio T-Shirt', imageUrl: 'https://picsum.photos/seed/hauntedtrio/400/400', price: '$21.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
-        { id: 4, name: 'Autumn Ghost T-Shirt', imageUrl: 'https://picsum.photos/seed/autumnghost/400/400', price: '$21.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
-        { id: 5, name: 'Phantom Phone Case', imageUrl: 'https://picsum.photos/seed/phantomcase/400/400', price: '$24.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
-        { id: 6, name: 'Ghostly Brew Mug', imageUrl: 'https://picsum.photos/seed/ghostbrew/400/400', price: '$18.95', productUrl: 'https://www.zazzle.com/store/nishthastore_01' },
-      ];
 
       // --- COMPONENTS RENDERERS ---
 
@@ -274,23 +238,6 @@
         </div>
       `;
 
-      const renderProductCard = (product) => `
-        <div class="group bg-black/60 backdrop-blur-md rounded-xl overflow-hidden border border-orange-500/20 hover:border-orange-500/60 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,100,0,0.3)]">
-          <div class="relative aspect-square overflow-hidden">
-            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"/>
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <a href="${product.productUrl}" target="_blank" rel="noreferrer" class="bg-orange-600 text-white px-6 py-3 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center shadow-lg hover:bg-orange-700">
-                <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i> Buy Now
-              </a>
-            </div>
-          </div>
-          <div class="p-5 text-center">
-            <h3 class="text-lg font-bold text-gray-100 mb-1 group-hover:text-orange-400 transition-colors">${product.name}</h3>
-            <p class="text-2xl font-extrabold text-orange-500">${product.price}</p>
-          </div>
-        </div>
-      `;
-
       const renderServiceCard = (iconName, title, desc, link) => `
         <div class="group bg-gray-900/40 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:bg-gray-800/60 transition-all duration-300 flex flex-col items-center text-center">
           <div class="mb-6 p-4 rounded-full bg-gradient-to-br from-purple-900/50 to-pink-900/50 text-white group-hover:scale-110 transition-transform duration-300 ring-1 ring-white/10 group-hover:ring-purple-500/50">
@@ -305,7 +252,6 @@
       `;
 
       const renderReviewSection = (reviews) => {
-        // Double the reviews for continuous marquee effect
         const marqueeReviews = [...reviews, ...reviews];
         return `
             <div class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
@@ -325,13 +271,11 @@
             <section class="py-24 relative overflow-hidden min-h-[70vh] flex items-center justify-center">
                 <div class="absolute inset-0 z-0 opacity-20 animate-pulse-slow" style="background-image: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 1600 900\' xmlns=\'http://www.w3.org/2000/svg\'><defs><linearGradient id=\'a\' x1=\'0\' x2=\'0\' y1=\'1\' y2=\'0\'><stop offset=\'0\' stop-color=\'%23a855f7\'/><stop offset=\'1\' stop-color=\'%23e9d5ff\'/></linearGradient><linearGradient id=\'b\' x1=\'0\' x2=\'0\' y1=\'0\' y2=\'1\'><stop offset=\'0\' stop-color=\'%23f472b6\'/><stop offset=\'1\' stop-color=\'%23a855f7\'/></linearGradient></defs><g fill=\'none\' stroke-dasharray=\'10 5\' stroke-width=\'0.5\'><path d=\'M1600 0L0 900\' stroke=\'url(%23a)\'/><path d=\'M0 0L1600 900\' stroke=\'url(%23b)\'/><path d=\'M800 0L800 900\' stroke-opacity=\'0.4\' stroke=\'url(%23a)\'/><path d=\'M0 450L1600 450\' stroke-opacity=\'0.4\' stroke=\'url(%23b)\'/></g></svg>'); background-size: cover;"></div>
                 <div class="relative z-10 px-4 text-center">
-                  <!-- ****** AAPKI PHOTO YAHAN ADD KI GAYI HAI ****** -->
                   <img 
                     src="./my-profile-photo.jpg" 
                     alt="Aapki Profile Photo" 
                     class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-purple-500 shadow-2xl mx-auto mb-8 transform hover:scale-105 transition-transform duration-500"
                   />
-                  <!-- ******************************************* -->
                   <h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600">Engineering Digital Growth.</h1>
                   <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">We architect bespoke digital strategies—from precision SEO and high-ROI ad campaigns to compelling email marketing—that deliver measurable growth.</p>
                   <div class="flex flex-col md:flex-row gap-4 justify-center">
@@ -341,9 +285,7 @@
             </section>
 
             <!-- AI Tool -->
-            <section class="py-16 px-4 max-w-4xl mx-auto" id="ai-marketing-tool">
-                <!-- JS will inject AI Tool here -->
-            </section>
+            <section class="py-16 px-4 max-w-4xl mx-auto" id="ai-marketing-tool"></section>
 
             <!-- Services -->
             <section class="py-16">
@@ -375,16 +317,14 @@
                 <h2 class="text-3xl font-bold mb-8 text-center text-white">Our Proven Projects</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.seo.map(renderProjectCard).join('')}</div>
             </section>
-            <!-- Fiverr CTA Button for SEO -->
             <section class="py-10 text-center">
                 <a href="https://www.fiverr.com/s/qDBQbGl" target="_blank" class="inline-flex items-center bg-gradient-to-r from-green-500 to-blue-500 text-white font-bold py-3 px-8 rounded-full hover:from-green-600 hover:to-blue-600 transition-all shadow-lg shadow-green-500/50 transform hover:scale-105">
                     <i data-lucide="store" class="w-5 h-5 mr-2"></i> Order SEO Service on Fiverr
                 </a>
             </section>
-            <!-- Reviews Section Added for SEO -->
             <section class="py-20 overflow-x-hidden">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Trusted SEO Results Testimonials</h2>
-                ${renderReviewSection(seoReviews)} <!-- SEO-specific reviews -->
+                ${renderReviewSection(seoReviews)}
             </section>
           </div>
         `,
@@ -396,19 +336,16 @@
             </section>
             <section class="py-10">
                 <h2 class="text-3xl font-bold mb-8 text-center text-white">Successful Campaigns</h2>
-                <!-- Only the remaining two projects will be rendered here -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.ads.map(renderProjectCard).join('')}</div>
             </section>
-            <!-- Fiverr CTA Button for Ads -->
              <section class="text-center py-10">
                 <a href="https://www.fiverr.com/s/o8mzd6L" target="_blank" class="inline-flex items-center bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold py-3 px-8 rounded-full hover:from-red-700 hover:to-yellow-700 transition-all shadow-lg shadow-orange-500/50 transform hover:scale-105">
                     <i data-lucide="store" class="w-5 h-5 mr-2"></i> Launch Ad Campaign on Fiverr
                 </a>
             </section>
-            <!-- Reviews Section Added for Ads -->
             <section class="py-20 overflow-x-hidden">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Client Ad Campaign Success Stories</h2>
-                ${renderReviewSection(adsReviews)} <!-- Ads-specific reviews -->
+                ${renderReviewSection(adsReviews)}
             </section>
           </div>
         `,
@@ -423,40 +360,20 @@
                 <h2 class="text-3xl font-bold mb-8 text-center text-white">Impactful Email Projects</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.email.map(renderProjectCard).join('')}</div>
             </section>
-            <!-- Fiverr CTA Button for Email Marketing -->
             <section class="py-10 text-center">
                 <a href="https://www.fiverr.com/s/XL8E0x0" target="_blank" class="inline-flex items-center bg-gradient-to-r from-blue-400 to-indigo-600 text-white font-bold py-3 px-8 rounded-full hover:from-blue-500 hover:to-indigo-700 transition-all shadow-lg shadow-blue-500/50 transform hover:scale-105">
                     <i data-lucide="store" class="w-5 h-5 mr-2"></i> Order Email Service on Fiverr
                 </a>
             </section>
-            <!-- Reviews Section Added for Email Marketing -->
             <section class="py-20 overflow-x-hidden">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Email Marketing Testimonials</h2>
-                ${renderReviewSection(emailReviews)} <!-- Email-specific reviews -->
-            </section>
-          </div>
-        `,
-        '/print-on-demand': () => `
-           <div class="animate-fade-in-up container mx-auto">
-            <section class="text-center py-16">
-                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 text-orange-500 animate-halloween-glow font-serif tracking-wider">nishthastore_01</h1>
-                <p class="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto drop-shadow-lg">Unleash your inner ghoul with our exclusive Halloween collection.</p>
-            </section>
-            <section class="py-12">
-                <div class="flex items-center justify-center mb-12">
-                    <div class="h-1 w-20 bg-orange-500 rounded-full"></div>
-                    <h2 class="text-4xl font-bold mx-6 text-gray-100 text-center">Featured Frights</h2>
-                    <div class="h-1 w-20 bg-orange-500 rounded-full"></div>
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-                  ${podProducts.map(renderProductCard).join('')}
-                </div>
+                ${renderReviewSection(emailReviews)}
             </section>
           </div>
         `
       };
 
-      // --- AI TOOLS LOGIC & RENDERING ---
+      // --- AI TOOLS LOGIC ---
       
       function renderAiContainer(title, desc, icon, colorClass, type) {
           return `
@@ -509,77 +426,34 @@
         btn.disabled = true;
 
         try {
-             // Check for API Key
-            if (typeof process === 'undefined' || !process.env.API_KEY) {
-                // Mock response if API key is not available
-                const mockData = {
-                    marketing: { headlines: ["Boost Your Conversions Now!", "Stop Losing Sales, Start Converting"], adCopy: "Our AI-powered campaigns guarantee a 5x ROAS by targeting the perfect audience." },
-                    seo: { title: `Best SEO Strategy for ${input1}`, metaDescription: `Dominate Google with our proven SEO techniques. Targetting: ${input2}.`, keywords: ["SEO", "Google Ranking", "Digital Marketing", input1.toLowerCase().replace(/\s/g, "-")] },
-                    email: { subjectLines: ["[Action Required] Your Cart is Waiting!", "Don't Miss Out! A Special Offer for You", `Exclusive offer for ${input2}`], preheader: "Time-sensitive deal inside. Click now to save!" }
-                };
-                const data = mockData[type];
-                
-                let html = '';
-                if (type === 'marketing') {
-                    html = `
-                        <div><p class="text-purple-400 font-bold text-xs uppercase">Headlines</p><ul class="list-disc pl-4 mb-4">${data.headlines ? data.headlines.map(h => `<li>${h}</li>`).join('') : ''}</ul></div>
-                        <div><p class="text-purple-400 font-bold text-xs uppercase">Ad Copy</p><p>${data.adCopy || ''}</p></div>
-                    `;
-                } else if (type === 'seo') {
-                    html = `
-                        <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Title Tag</p><p class="bg-gray-800 p-2 rounded">${data.title || ''}</p></div>
-                        <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Meta Description</p><p class="bg-gray-800 p-2 rounded">${data.metaDescription || ''}</p></div>
-                        <div><p class="text-green-400 font-bold text-xs uppercase">Keywords</p><div class="flex flex-wrap gap-2 mt-1">${data.keywords ? data.keywords.map(k => `<span class="text-xs bg-green-900/40 px-2 py-1 rounded border border-green-500/30">${k}</span>`).join('') : ''}</div></div>
-                    `;
-                } else if (type === 'email') {
-                    html = `
-                        <div class="mb-4"><p class="text-blue-400 font-bold text-xs uppercase">Subject Lines</p><ul class="space-y-2 mt-1">${data.subjectLines ? data.subjectLines.map(l => `<li class="bg-gray-800 p-2 rounded text-sm">${l}</li>`).join('') : ''}</ul></div>
-                        <div><p class="text-blue-400 font-bold text-xs uppercase">Preheader</p><p class="bg-gray-800 p-2 rounded text-sm italic">${data.preheader || ''}</p></div>
-                    `;
-                }
-                resultDiv.innerHTML = html;
-                return;
-            }
-
-            // Real API call (only executes if API_KEY is defined)
-            const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-            const model = "gemini-2.5-flash";
+            const mockData = {
+                marketing: { headlines: ["Boost Your Conversions Now!", "Stop Losing Sales, Start Converting"], adCopy: "Our AI-powered campaigns guarantee a high ROAS by targeting the perfect audience." },
+                seo: { title: `Best SEO Strategy for ${input1}`, metaDescription: `Dominate Google with our proven SEO techniques. Targetting: ${input2}.`, keywords: ["SEO", "Google Ranking", "Digital Marketing", input1.toLowerCase().replace(/\s/g, "-")] },
+                email: { subjectLines: ["[Action Required] Your Cart is Waiting!", "Don't Miss Out!", `Exclusive offer for ${input2}`], preheader: "Time-sensitive deal inside. Click now to save!" }
+            };
+            const data = mockData[type];
             
-            const prompt = promptTemplate.replace('{1}', input1).replace('{2}', input2);
-            
-            const response = await ai.models.generateContent({
-                model: model,
-                contents: prompt,
-                config: { responseMimeType: "application/json" }
-            });
-            
-            const data = JSON.parse(response.text);
-            
-            // Format Output based on type
             let html = '';
             if (type === 'marketing') {
-                 html = `
-                    <div><p class="text-purple-400 font-bold text-xs uppercase">Headlines</p><ul class="list-disc pl-4 mb-4">${data.headlines ? data.headlines.map(h => `<li>${h}</li>`).join('') : ''}</ul></div>
-                    <div><p class="text-purple-400 font-bold text-xs uppercase">Ad Copy</p><p>${data.adCopy || ''}</p></div>
-                 `;
+                html = `
+                    <div><p class="text-purple-400 font-bold text-xs uppercase">Headlines</p><ul class="list-disc pl-4 mb-4">${data.headlines.map(h => `<li>${h}</li>`).join('')}</ul></div>
+                    <div><p class="text-purple-400 font-bold text-xs uppercase">Ad Copy</p><p>${data.adCopy}</p></div>
+                `;
             } else if (type === 'seo') {
-                 html = `
-                    <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Title Tag</p><p class="bg-gray-800 p-2 rounded">${data.title || ''}</p></div>
-                    <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Meta Description</p><p class="bg-gray-800 p-2 rounded">${data.metaDescription || ''}</p></div>
-                    <div><p class="text-green-400 font-bold text-xs uppercase">Keywords</p><div class="flex flex-wrap gap-2 mt-1">${data.keywords ? data.keywords.map(k => `<span class="text-xs bg-green-900/40 px-2 py-1 rounded border border-green-500/30">${k}</span>`).join('') : ''}</div></div>
-                 `;
+                html = `
+                    <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Title Tag</p><p class="bg-gray-800 p-2 rounded">${data.title}</p></div>
+                    <div class="mb-2"><p class="text-green-400 font-bold text-xs uppercase">Meta Description</p><p class="bg-gray-800 p-2 rounded">${data.metaDescription}</p></div>
+                    <div><p class="text-green-400 font-bold text-xs uppercase">Keywords</p><div class="flex flex-wrap gap-2 mt-1">${data.keywords.map(k => `<span class="text-xs bg-green-900/40 px-2 py-1 rounded border border-green-500/30">${k}</span>`).join('')}</div></div>
+                `;
             } else if (type === 'email') {
-                 html = `
-                    <div class="mb-4"><p class="text-blue-400 font-bold text-xs uppercase">Subject Lines</p><ul class="space-y-2 mt-1">${data.subjectLines ? data.subjectLines.map(l => `<li class="bg-gray-800 p-2 rounded text-sm">${l}</li>`).join('') : ''}</ul></div>
-                    <div><p class="text-blue-400 font-bold text-xs uppercase">Preheader</p><p class="bg-gray-800 p-2 rounded text-sm italic">${data.preheader || ''}</p></div>
-                 `;
+                html = `
+                    <div class="mb-4"><p class="text-blue-400 font-bold text-xs uppercase">Subject Lines</p><ul class="space-y-2 mt-1">${data.subjectLines.map(l => `<li class="bg-gray-800 p-2 rounded text-sm">${l}</li>`).join('')}</ul></div>
+                    <div><p class="text-blue-400 font-bold text-xs uppercase">Preheader</p><p class="bg-gray-800 p-2 rounded text-sm italic">${data.preheader}</p></div>
+                `;
             }
-            
             resultDiv.innerHTML = html;
-
         } catch (err) {
-            console.error(err);
-            errorDiv.innerText = "Error: " + (err.message || "Failed to connect to AI service.");
+            errorDiv.innerText = "Error generating content.";
         } finally {
             btn.innerHTML = originalBtnText;
             btn.disabled = false;
@@ -591,7 +465,7 @@
           if (marketingContainer) {
               marketingContainer.innerHTML = renderAiContainer('AI Ad Copy Generator', 'Generate high-converting headlines and copy.', 'sparkles', 'from-purple-900/40 to-black', 'marketing');
               document.getElementById('ai-marketing-btn').addEventListener('click', () => {
-                  handleAiGenerate('marketing', `Product: {1}. Description: {2}. Generate JSON with fields: headlines (array of strings), adCopy (string).`);
+                  handleAiGenerate('marketing', '');
               });
           }
 
@@ -599,7 +473,7 @@
           if (seoContainer) {
               seoContainer.innerHTML = renderAiContainer('AI SEO Optimizer', 'Generate perfect meta tags in seconds.', 'bar-chart', 'from-green-900/40 to-black', 'seo');
               document.getElementById('ai-seo-btn').addEventListener('click', () => {
-                  handleAiGenerate('seo', `Keyword: {1}. Content: {2}. Generate JSON with fields: title (string), metaDescription (string), keywords (array of strings).`);
+                  handleAiGenerate('seo', '');
               });
           }
 
@@ -607,10 +481,9 @@
           if (emailContainer) {
               emailContainer.innerHTML = renderAiContainer('AI Subject Line Gen', 'Boost open rates with AI hooks.', 'mail', 'from-blue-900/40 to-black', 'email');
               document.getElementById('ai-email-btn').addEventListener('click', () => {
-                  handleAiGenerate('email', `Topic: {1}. Audience: {2}. Generate JSON with fields: subjectLines (array of strings), preheader (string).`);
+                  handleAiGenerate('email', '');
               });
           }
-          
           lucide.createIcons();
       }
 
@@ -621,16 +494,9 @@
         const appContent = document.getElementById('app-content');
         const bgLayer = document.getElementById('bg-layer');
 
-        // Update Background
-        if (hash === '/print-on-demand') {
-             bgLayer.className = 'fixed inset-0 z-0 bg-cover bg-fixed bg-center';
-             bgLayer.style.backgroundImage = "url('https://picsum.photos/seed/halloween/1920/1080')";
-        } else {
-             bgLayer.className = 'fixed inset-0 z-0 bg-gradient-to-br from-black via-gray-900 to-black animate-gradient-xy';
-             bgLayer.style.backgroundImage = "";
-        }
+        bgLayer.className = 'fixed inset-0 z-0 bg-gradient-to-br from-black via-gray-900 to-black animate-gradient-xy';
+        bgLayer.style.backgroundImage = "";
 
-        // Render Page
         if (pages[hash]) {
             appContent.innerHTML = pages[hash]();
             window.scrollTo(0,0);
@@ -638,13 +504,11 @@
             appContent.innerHTML = `<div class="text-center py-20"><h1 class="text-4xl font-bold">404 Not Found</h1><a href="#/" class="text-purple-400 mt-4 inline-block">Go Home</a></div>`;
         }
 
-        // Mount Dynamic Components (AI Tools & Icons)
         setTimeout(() => {
              mountAiTools();
              lucide.createIcons();
         }, 50);
 
-        // Update Active Nav State
         document.querySelectorAll('.nav-link').forEach(link => {
              if (link.getAttribute('data-path') === hash) {
                  link.classList.add('text-purple-400');
@@ -661,10 +525,8 @@
       window.addEventListener('hashchange', router);
       window.addEventListener('load', router);
       
-      // Mobile Menu Logic
       document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-          const menu = document.getElementById('mobile-menu');
-          menu.classList.toggle('hidden');
+          document.getElementById('mobile-menu').classList.toggle('hidden');
       });
       document.querySelectorAll('.mobile-link').forEach(link => {
           link.addEventListener('click', () => {
