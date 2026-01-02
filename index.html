@@ -416,27 +416,122 @@
   </div>
 `,
        
-        '/ads': () => `
-          <div class="animate-fade-in-up container mx-auto">
-            <section class="text-center py-16">
-                <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-yellow-500">Targeted Ad Campaigns</h1>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">High-impact ad campaigns that drive measurable results.</p>
-            </section>
-            <section class="py-10">
-                <h2 class="text-3xl font-bold mb-8 text-center text-white">Successful Campaigns</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.ads.map(renderProjectCard).join('')}</div>
-            </section>
-             <section class="text-center py-10">
-                <a href="https://www.fiverr.com/s/o8mzd6L" target="_blank" class="inline-flex items-center bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold py-3 px-8 rounded-full hover:from-red-700 hover:to-yellow-700 transition-all shadow-lg shadow-orange-500/50 transform hover:scale-105">
-                    <i data-lucide="store" class="w-5 h-5 mr-2"></i> Launch Ad Campaign on Fiverr
-                </a>
-            </section>
-            <section class="py-20 overflow-x-hidden">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Client Ad Campaign Success Stories</h2>
-                ${renderReviewSection(adsReviews)}
-            </section>
-          </div>
-        `,
+       '/ads': () => `
+  <div class="animate-fade-in-up container mx-auto px-4">
+    <!-- Hero Section -->
+    <section class="text-center py-16">
+        <h1 class="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-yellow-500">Targeted Ad Campaigns</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">High-impact Facebook & Instagram ad campaigns designed to solve your ROAS and lead quality problems.</p>
+    </section>
+
+    <!-- AI Tool Section -->
+    <section class="max-w-4xl mx-auto px-4 mb-12" id="ai-marketing-tool"></section>
+
+    <!-- Targeted Solutions Section -->
+    <section class="py-12">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">
+                <a href="https://freelancingvibes.online/ads/" class="hover:underline">Targeted Solutions for Your Niche</a>
+            </h2>
+            <p class="text-gray-400">Select your industry to see how we maximize your Ad Spend (ROAS).</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 1. Real Estate -->
+            <div class="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-blue-500 transition-all flex flex-col justify-between">
+                <div>
+                    <span class="text-blue-400 text-xs font-bold uppercase tracking-widest">High Intent</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-3">Real Estate Ads</h3>
+                </div>
+                <a href="https://freelancingvibes.online/ads/for-real-estate.html" class="w-full py-2 px-4 bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-600/50 rounded-lg text-center font-bold transition-all">Explore Solutions</a>
+            </div>
+
+            <!-- 2. E-commerce -->
+            <div class="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-pink-500 transition-all flex flex-col justify-between">
+                <div>
+                    <span class="text-pink-400 text-xs font-bold uppercase tracking-widest">Max ROAS</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-3">E-commerce Sales</h3>
+                </div>
+                <a href="https://freelancingvibes.online/ads/for-ecommerce.html" class="w-full py-2 px-4 bg-pink-600/20 hover:bg-pink-600 text-pink-400 hover:text-white border border-pink-600/50 rounded-lg text-center font-bold transition-all">Explore Solutions</a>
+            </div>
+
+            <!-- 3. Gyms -->
+            <div class="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-red-500 transition-all flex flex-col justify-between">
+                <div>
+                    <span class="text-red-400 text-xs font-bold uppercase tracking-widest">Local Growth</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-3">Gym & Fitness Ads</h3>
+                </div>
+                <a href="https://freelancingvibes.online/ads/for-gyms.html" class="w-full py-2 px-4 bg-red-600/20 hover:bg-red-600 text-red-400 hover:text-white border border-red-600/50 rounded-lg text-center font-bold transition-all">Explore Solutions</a>
+            </div>
+
+            <!-- 4. Coaching -->
+            <div class="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-purple-500 transition-all flex flex-col justify-between">
+                <div>
+                    <span class="text-purple-400 text-xs font-bold uppercase tracking-widest">Scale Fast</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-3">Course & Coach Ads</h3>
+                </div>
+                <a href="https://freelancingvibes.online/ads/for-coaches.html" class="w-full py-2 px-4 bg-purple-600/20 hover:bg-purple-600 text-purple-400 hover:text-white border border-purple-600/50 rounded-lg text-center font-bold transition-all">Explore Solutions</a>
+            </div>
+
+            <!-- 5. Healthcare -->
+            <div class="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-cyan-500 transition-all flex flex-col justify-between">
+                <div>
+                    <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">Patient Trust</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-3">Dental & Clinic Ads</h3>
+                </div>
+                <a href="https://freelancingvibes.online/ads/for-clinics.html" class="w-full py-2 px-4 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-400 hover:text-white border border-cyan-600/50 rounded-lg text-center font-bold transition-all">Explore Solutions</a>
+            </div>
+
+            <!-- 6. Solar -->
+            <div class="bg-gray-800/40 p-6 rounded-2xl border border-gray-700 hover:border-yellow-500 transition-all flex flex-col justify-between">
+                <div>
+                    <span class="text-yellow-400 text-xs font-bold uppercase tracking-widest">Qualified Leads</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-3">Solar Lead Gen</h3>
+                </div>
+                <a href="https://freelancingvibes.online/ads/for-solar.html" class="w-full py-2 px-4 bg-yellow-600/20 hover:bg-yellow-600 text-yellow-400 hover:text-white border border-yellow-600/50 rounded-lg text-center font-bold transition-all">Explore Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proven Projects -->
+    <section class="py-10">
+        <h2 class="text-3xl font-bold mb-8 text-center text-white">Successful Ad Campaigns</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">${projects.ads.map(renderProjectCard).join('')}</div>
+    </section>
+
+    <!-- Fiverr CTA -->
+    <section class="py-10 text-center">
+        <a href="https://www.fiverr.com/s/o8mzd6L" target="_blank" class="inline-flex items-center bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold py-3 px-8 rounded-full hover:from-red-700 hover:to-yellow-700 transition-all shadow-lg transform hover:scale-105">
+            <i data-lucide="store" class="w-5 h-5 mr-2"></i> Launch Ad Campaign on Fiverr
+        </a>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 overflow-x-hidden">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Client Ad Success Stories</h2>
+        ${renderReviewSection(adsReviews)}
+    </section>
+
+    <!-- Strategy Audit Form -->
+    <section id="audit-form" class="py-16 max-w-4xl mx-auto">
+        <div class="bg-gray-900 border border-gray-800 p-8 rounded-3xl shadow-2xl">
+            <h2 class="text-3xl font-bold mb-4 text-center text-white">Request a Free Ad Strategy Audit</h2>
+            <p class="text-gray-400 text-center mb-10">Is your ROAS low? We will analyze your ad account and provide a 30-day profit-scaling roadmap — completely free.</p>
+            <form class="grid md:grid-cols-2 gap-4">
+                <input type="text" placeholder="Full Name" class="bg-gray-800 border-none text-white p-4 rounded-xl focus:ring-2 focus:ring-red-500 outline-none text-left">
+                <input type="email" placeholder="Business Email" class="bg-gray-800 border-none text-white p-4 rounded-xl focus:ring-2 focus:ring-red-500 outline-none text-left">
+                <select class="md:col-span-2 bg-gray-800 border-none text-white p-4 rounded-xl focus:ring-2 focus:ring-red-500 outline-none text-left">
+                    <option>Select Industry</option>
+                    <option>Real Estate</option><option>E-commerce</option><option>Gym & Fitness</option>
+                    <option>Coaching/Courses</option><option>Dental/Clinic</option><option>Solar Energy</option>
+                </select>
+                <textarea placeholder="Tell us about your current ad spend and problem" class="md:col-span-2 bg-gray-800 border-none text-white p-4 rounded-xl focus:ring-2 focus:ring-red-500 outline-none h-32 text-left"></textarea>
+                <button class="md:col-span-2 bg-gradient-to-r from-red-600 to-yellow-600 text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all">Fix My Ads Now</button>
+            </form>
+        </div>
+    </section>
+  </div>
+`,
         '/email-marketing': () => `
            <div class="animate-fade-in-up container mx-auto">
             <section class="text-center py-16">
